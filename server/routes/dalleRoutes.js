@@ -1,6 +1,8 @@
 import express from "express";
-// import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 import { Configuration, OpenAIApi } from "openai";
+
+dotenv.config();
 
 const router = express.Router();
 
@@ -34,4 +36,5 @@ router.route("/").post(async (req, res) => {
       .send(error?.response.data.error.message || "Something went wrong");
   }
 });
+
 export default router;

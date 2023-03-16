@@ -24,12 +24,15 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:8080/api/v1/post", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/v1/post`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (response.ok) {
         const result = await response.json();
